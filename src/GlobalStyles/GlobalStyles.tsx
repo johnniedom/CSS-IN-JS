@@ -31,7 +31,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+	line-height: 1; 
+	background: slateblue;
 }
 ol, ul {
 	list-style: none;

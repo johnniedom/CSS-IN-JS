@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
+
+
+
 function LoginForm({ handleSubmit }) {
   return (
-    <Form id="login-form" onSubmit={handleSubmit}>
+    <Wrapper id="login-form" onSubmit={handleSubmit}>
       <Labels>
         Email:
         <Data type="email" placeholder="me@you.com" />
@@ -11,12 +14,12 @@ function LoginForm({ handleSubmit }) {
         Password:
         <Data type="password" />
       </Labels>
-      <Button type="submit">Log In</Button>
-    </Form>
+      <Button type="submit" >Log In</Button>
+    </Wrapper>
   );
 }
 
-const Form = styled.form`
+const Wrapper = styled.form`
   width: max-content;
   margin: 16px auto;
   border: 1px dotted silver;
@@ -73,28 +76,6 @@ const Button = styled.button.attrs((props) => ({ type: "submit" }))`
   }
 `;
 
-/**
 
-
-#login-form button[type=submit] {
-  display: block;
-  margin-top: 40px;
-  width: 100%;
-  background: black;
-  color: white;
-  padding: 8px;
-  border: none;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  border-radius: 3px;
-}
-
-#login-form button[type=submit]:focus {
-  outline: 3px auto blue;
-  background: blue;
-  outline-offset: 2px;
-}
- */
 
 export default LoginForm;

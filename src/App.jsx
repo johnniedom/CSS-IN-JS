@@ -1,7 +1,7 @@
 import FQA from "./Components/FQA/FQA";
 import LoginForm from "./Components/Login/login";
 import GlobalStyles from "./GlobalStyles/GlobalStyles";
-
+import ContactCard from "./Components/ContactCard/ContactCard";
 function App() {
   return (
     <>
@@ -13,14 +13,15 @@ function App() {
            Let's convert this one! The “CSS” tab should be empty, by the time you're finished.
           Note: You don't need to import styled, it's already in scope!"
         />
-        <LoginForm/>
-
+        {/* <LoginForm /> */}
+        <ContactCard  avatarSrc={require('./assets/img/client.png')} name={"Johnnie"} email={"Johnnedom1@gmail.com"} />
       </div>
-         <section>
-         
-         </section>
 
-      <GlobalStyles />
+      <div>
+       
+      </div>
+      <GlobalStyles/>
+      
     </>
   );
 }
