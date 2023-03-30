@@ -3,10 +3,10 @@ function ContactCard({ avatarSrc, name, email }) {
   return (
     <>
       {" "}
-      <Wrapper class="contact-card">
-        <img alt="" src={avatarSrc} className="avatar" />
-        <h2>{name}</h2>
-        <p>{email}</p>
+      <Wrapper >
+        <Avatar alt="" src={avatarSrc} className="avatar" />
+        <Name>{name}</Name>
+        <Email>{email}</Email>
       </Wrapper>
     </>
   );
@@ -18,47 +18,41 @@ const Wrapper = styled.article`
   padding: 24px;
   background: white;
   min-width: 250px;
-  max-width: 300px;
+  max-width: 400px;
   box-shadow: 0px 2px 20px hsl(248deg 53% 40%);
   text-align: center;
+  display:block;
+  margin: 0 auto;
+  margin-top: 64px;
+`
+const Avatar = styled.img`
+    border-radius: 50%;
+    width: 128px;
+   height: 128px;
+   display:block;
+   margin:0 auto;
+   margin-top: -64px;
+   margin-bottom: 22px;
+   border: 6px solid white;
+
+   &:hover{
+    transform: scale(1.2);
+    transition : 350ms ease-out;
+    overflow:hidden;
+   }
+`
+const Name = styled.div`
+font-size: 1.25rem;
+font-weight: 600;
+margin-bottom: 0px;
 `
 
-/**
- * 
-.contact-card {
-  min-width: 250px;
-  border-radius: 32px;
-  padding: 24px;
-  background: white;
-  box-shadow:
-    0px 2px 20px hsl(248deg 53% 40%);
-  text-align: center;
-}
+const Email = styled.p`
+font-size: 1rem;
+font-weight: 300;
+color: hsl(0deg 0% 40%);
+`
 
-.contact-card .avatar {
-  display: block;
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;a
-  margin-top: -64px;
-  margin-bottom: 16px;
-  border: 6px solid white;
-}
 
-.contact-card h2 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0px;
-}
-
-.contact-card p {
-  font-size: 1rem;
-  font-weight: 300;
-  color: hsl(0deg 0% 40%);
-}
-
- */
 
 export default ContactCard;

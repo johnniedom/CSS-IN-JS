@@ -1,29 +1,36 @@
-import FQA from "./Components/FQA/FQA";
-import LoginForm from "./Components/Login/login";
 import GlobalStyles from "./GlobalStyles/GlobalStyles";
 import ContactCard from "./Components/ContactCard/ContactCard";
+import styled from "styled-components";
+import AI from "./assets/img/AI.png";
+import { IconButton } from "./Components/IconButton/IconButton";
+import { Map, Save, ShoppingCart } from "react-feather";
+
 function App() {
   return (
     <>
       {" "}
       <div>
-        <FQA
-          question="What does “CSS” stand for?"
-          answer="Cool Styling StrategyI've built so many little FAQ components over the years.
-           Let's convert this one! The “CSS” tab should be empty, by the time you're finished.
-          Note: You don't need to import styled, it's already in scope!"
-        />
         {/* <LoginForm /> */}
-        <ContactCard  avatarSrc={require('./assets/img/client.png')} name={"Johnnie"} email={"Johnnedom1@gmail.com"} />
+        <ContactCard avatarSrc={AI} name={"AI"} email={"AI@gmail.com"} />
       </div>
-
-      <div>
-       
-      </div>
-      <GlobalStyles/>
-      
+      <GroupWrapper>
+        <IconButton isCurrent icon={<Map />}>
+          Navigation
+        </IconButton>
+        <IconButton icon={<Save />}>Save Route</IconButton>
+        <IconButton icon={<ShoppingCart />}>View Cart</IconButton>
+      </GroupWrapper>
+      <GlobalStyles />
     </>
   );
 }
+
+const GroupWrapper = styled.div`
+  margin-top:8px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding :2rem;
+`;
 
 export default App;
