@@ -3,10 +3,12 @@ import { Map, Save, ShoppingCart } from "react-feather";
 
 function IconButton({ icon, children, isCurrent, ...delegated }) {
   return (
-    <ButtonWrapper {...delegated}>
-      <Icon isCurrent={isCurrent}>{icon}</Icon>
-      {children}
-    </ButtonWrapper>
+   
+      <ButtonWrapper {...delegated}>
+        <Icon isCurrent={isCurrent}>{icon}</Icon>
+        {children}
+      </ButtonWrapper>
+ 
   );
 }
 
@@ -23,9 +25,18 @@ const Icon = styled.span`
   color: ${(props) => props.isCurrent && "deeppink"};
 
   &:hover {
-    color: ${(props) => props.isCurrent && "pink"};
+    color: ${(props) => props.isCurrent && "slateblue"};
     transition: 200ms 100ms;
   }
+`;
+
+const GroupWrapper = styled.div`
+  margin-top: 8px;
+  display: flex;
+  flex-direction:colum;
+  gap: 8px;
+  justify-content: center;
+  padding: 2rem;
 `;
 
 export { IconButton };
