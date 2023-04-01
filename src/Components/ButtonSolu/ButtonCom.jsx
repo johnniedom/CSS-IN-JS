@@ -31,10 +31,10 @@ const Button = ({ variant, size, children }) => {
     ButtonVariant = FillBtn;
   }
   if (variant === "outline") {
-    ButtonVariant = FillBtn;
+    ButtonVariant = OutlineBtn;
   }
-  if (variant === "Ghost") {
-    ButtonVariant = FillBtn;
+  if (variant === "ghost") {
+    ButtonVariant = GhostBtn;
   }
   return (
     <>
@@ -49,15 +49,47 @@ const BtnWrapper = styled.button`
   font-size: var(--fontSize);
   padding: var(--padding);
   border: none;
+  outline: ${COLORS.primary};
+ 
 `;
 
 //using Composition. with the Variant applied
 const FillBtn = styled(BtnWrapper)`
   background: ${COLORS.primary};
+  color: ${COLORS.white};
+
+  &:focus{
+    outline: 2px solid ${COLORS.primary};
+    outline-offset: 2px;
+  }
 `;
 const OutlineBtn = styled(BtnWrapper)`
-  background: ${COLORS.transparentGray15};
+  background: ${COLORS.white};
+  color: ${COLORS.primary};
+  border: 2px solid ${COLORS.primary};
+
+  &:focus{
+    outline: 2px solid ${COLORS.primary};
+    outline-offset: 2px;
+  }
+  &:hover{
+    outline: ${COLORS.primary};
+    outline-offset: 2px;
+  }
 `;
-const GhostBtn = styled(BtnWrapper)``;
+const GhostBtn = styled(BtnWrapper)`
+  color:${COLORS.gray};
+  
+  &:focus{
+    outline: 2px solid ${COLORS.transparentGray75};
+    outline-offset: 2px;
+  }
+
+  &:hover{
+    background: ${COLORS.grey};
+    outline-offset:2px;
+    color:${COLORS.black};
+  }
+`;
 
 export default Button;
