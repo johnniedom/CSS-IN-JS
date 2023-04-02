@@ -27,15 +27,22 @@ const SIZES = {
 const Button = ({ variant, size, children }) => {
   const styles = SIZES[size];
   let ButtonVariant;
-  if (variant === "fill") {
-    ButtonVariant = FillBtn;
+  try {
+    if (variant === "fill") {
+      ButtonVariant = FillBtn;
+    }
+    if (variant === "outline") {
+      ButtonVariant = OutlineBtn;
+    }
+    if (variant === "ghost") {
+      ButtonVariant = GhostBtn;
+    }
+  } catch (err) {
+    console.error(err);
+    console.error("Unrecognized Button variant:", variant);
+    throw new Error(`Unrecognized Button variant: ${variant}`);
   }
-  if (variant === "outline") {
-    ButtonVariant = OutlineBtn;
-  }
-  if (variant === "ghost") {
-    ButtonVariant = GhostBtn;
-  }
+
   return (
     <>
       <ButtonVariant style={styles}>{children}</ButtonVariant>
@@ -50,7 +57,6 @@ const BtnWrapper = styled.button`
   padding: var(--padding);
   border: none;
   outline: ${COLORS.primary};
- 
 `;
 
 //using Composition. with the Variant applied
@@ -58,7 +64,7 @@ const FillBtn = styled(BtnWrapper)`
   background: ${COLORS.primary};
   color: ${COLORS.white};
 
-  &:focus{
+  &:focus {
     outline: 2px solid ${COLORS.primary};
     outline-offset: 2px;
   }
@@ -68,27 +74,27 @@ const OutlineBtn = styled(BtnWrapper)`
   color: ${COLORS.primary};
   border: 2px solid ${COLORS.primary};
 
-  &:focus{
+  &:focus {
     outline: 2px solid ${COLORS.primary};
     outline-offset: 2px;
   }
-  &:hover{
+  &:hover {
     outline: ${COLORS.primary};
     outline-offset: 2px;
   }
 `;
 const GhostBtn = styled(BtnWrapper)`
-  color:${COLORS.gray};
-  
-  &:focus{
+  color: ${COLORS.gray};
+
+  &:focus {
     outline: 2px solid ${COLORS.transparentGray75};
     outline-offset: 2px;
   }
 
-  &:hover{
+  &:hover {
     background: ${COLORS.grey};
-    outline-offset:2px;
-    color:${COLORS.black};
+    outline-offset: 2px;
+    color: ${COLORS.black};
   }
 `;
 
